@@ -19,15 +19,48 @@ for(const i of products){
 showProducts();
 
 /* étape3 */
-function addProductToCart(obj){
-    const productToAdd = products [obj -1] ;
-    cart.push(obj);
-    console.log(`${obj.name} a été ajouté`);
-}
+function addProductToCart(index) {
+  let productToAdd = products[index - 1];
 
+  cart.push(productToAdd);
+  console.log(productToAdd.name + " a été ajouté!");
+}
 addProductToCart(1);
 console.log(cart);
 
 /* étape4 */
 
-// [] //
+function showCart(){
+    console.log("Produits dans le panier :");
+    let nbLine = 1;
+    let total = 0;
+    for (const product of cart) {
+        console.log(`${nbLine}. ${product.name} - ${product.price}€`);
+        total += product.price;
+        nbLine++;
+    }
+    console.log(`total : ${total}€`);
+}
+showCart(1);
+console.log(cart);
+
+/* étape5 */
+monTableau = [
+    { titre: "chaussure" },  // index 0
+    { titre: "chapeau" },    // index 1
+    { titre: "bikini" },     // index 2 
+    { titre: "parasol" }     // index 3
+];
+
+function removeProductFromCart(){
+const index = lineNumber -1;
+
+if(index<0 || index >= cart.length){
+    return;
+}
+console.log(cart);
+}
+const remove = monTableau.splice(2, 1);
+
+console.log(monTableau);
+removeProductFromCart();
